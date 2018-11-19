@@ -1,0 +1,74 @@
+.Upload {
+
+  margin-top: 30px;
+  width: 90%;
+  padding: 40px 15px;
+  background-color: rgba(245, 245, 240, 0.877);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  transition: box-shadow .25s;
+  box-shadow: 0 8px 97px 15px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.Upload .imgs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow: visible;
+  width: 80%;
+}
+.Upload .imgs img {
+  width: 95%;
+  max-width: 500px;
+  max-height: 400px;
+  margin: 20px 10px;
+  cursor: pointer;
+  transition: box-shadow .25s;
+  box-shadow: 0 8px 97px 15px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.Upload .imgs img:hover {
+
+  box-shadow: 0 7px 7px 1px rgba(0, 0, 0, 0.2), 4px 6px 2px 0 rgba(0, 0, 0, 0.19);
+
+animation: photo-giggle infinite 2000ms linear;
+
+}
+  @keyframes photo-giggle {
+    from { 
+      /* max-width: 500px; */
+      /* max-height: 400px; */
+    }
+    to {
+      /* max-width: 520px; */
+      /* max-height: 420px; */
+      transition: box-shadow .25s;
+      box-shadow: 0 8px 97px 15px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  }
+
+.Upload > .info {
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* padding: 30px 20px; */
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.719);
+  transition: box-shadow .25s;
+  /* box-shadow: 198px 7px 197px 1px rgba(0, 0, 0, 0.2), 4px 4px 42px 10px rgba(0, 0, 0, 0.19); */
+  box-shadow: 0 7px 7px 1px rgba(0, 0, 0, 0.2), 4px 6px 2px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 30px;
+  
+}
+.Upload > .info p {
+  width: 90%;
+  margin: 10px 0;
+  padding: 30px 20px;
+  /* background-color: rgba(255, 255, 0, 0.671); */
+}
+
+

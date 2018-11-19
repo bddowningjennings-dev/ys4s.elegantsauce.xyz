@@ -1,0 +1,88 @@
+.Demoer {
+  background: linear-gradient(to right,#737f91,#d3b6b6be);
+  height: 580px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.Demo.info {
+  opacity: 1;
+  transition: opacity 1s;
+  height: auto;
+  width: 100%;
+  /* position: absolute; */
+}
+.Demo.info p {
+  margin-top: 20px;
+}
+.Demo.info.hidden {
+  /* display: none; */
+  height: 0 important!;
+  /* transition: opacity 1s; */
+  position: absolute;
+  /* bottom: 0; */
+  opacity: 0;
+}
+
+.Demoer .buttons {
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  height: 580px;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+.Demoer .buttons > button {
+  margin: 0 7px;
+  align-self: center;
+  padding: 90px 5px;
+  border-radius: 50px;
+  background-color: rgba(240, 240, 178, 0.322);
+  border: none;
+  transition: box-shadow .25s;
+  font-size: 20px;
+  box-shadow: 0 8px 7px 5px rgba(73, 70, 70, 0.2), 0 6px 20px 0 rgba(99, 91, 91, 0.19);
+}
+.Demoer .buttons > button:hover {
+  background-color: rgba(145, 140, 140, 0.349);
+  /* background-color: rgba(107, 107, 99, 0.349); */
+  color: rgb(235, 223, 223);
+}
+
+@media screen and (max-width: 620px) {
+  .Demoer {
+    width: 100%;
+    height: auto;
+    /* height: 100%; */
+  }
+  .Demoer > .Demo {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .Demoer .buttons > button {
+    padding: 20px 10px;
+  }
+  .Demo.info.hidden {
+    height: 85%;
+  }
+  .demo-img {
+    width: 92%;
+    min-height: 250px;
+    margin-bottom: 20px;
+  }
+  .demo-info {
+    width: 80%;
+    min-height: 230px;
+    /* overflow: visible; */
+    /* height: 100%; */
+  }
+.SignInPanel .Form {
+  /* width: 20%; */
+  width: 60%;
+  min-width: 60%;
+}
+}

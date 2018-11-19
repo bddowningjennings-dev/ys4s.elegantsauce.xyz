@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="160.24649mm"
+   height="105.83333mm"
+   viewBox="0 0 160.24649 105.83333"
+   version="1.1"
+   id="svg959"
+   sodipodi:docname="ys4s_yellow.svg"
+   inkscape:version="0.92.3 (unknown)">
+  <defs
+     id="defs953" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="1535.6542"
+     inkscape:cy="-21.428572"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1053"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid1504"
+       originx="1184.1834"
+       originy="-425.97921" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata956">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(868.19557,54.895791)">
+    <ellipse
+       style="fill:#7fd79d;fill-opacity:0.81481479;stroke-width:0.26458332"
+       id="path1809"
+       cx="-766.15741"
+       cy="-1.9791269"
+       rx="58.208332"
+       ry="52.916664" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1538"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.33335876px;line-height:1.25;font-family:Kalimati;-inkscape-font-specification:Kalimati;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.1628205,0,0,0.17638887,-150.60898,24.91667)"><flowRegion
+         id="flowRegion1540"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.33335876px;font-family:Kalimati;-inkscape-font-specification:Kalimati"><rect
+           id="rect1542"
+           width="240"
+           height="160"
+           x="-1080"
+           y="282.51968"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.33335876px;font-family:Kalimati;-inkscape-font-specification:Kalimati" /></flowRegion><flowPara
+         id="flowPara1544">PostPpp</flowPara><flowPara
+         id="flowPara1546" /></flowRoot>    <rect
+       style="fill:#f14728;fill-opacity:0.64021164;stroke-width:0.22450635"
+       id="rect1767-3-3"
+       width="95.168518"
+       height="41.110905"
+       x="-863.42285"
+       y="57.574036"
+       ry="20.555452"
+       rx="34.637241"
+       transform="rotate(3.8068891)" />
+    <rect
+       style="fill:#7f9ed7;fill-opacity:0.81481479;stroke-width:0.26458332"
+       id="rect1767"
+       width="95.067688"
+       height="42.741184"
+       x="773.10303"
+       y="-13.757477"
+       ry="21.347912"
+       rx="42.150532"
+       transform="rotate(179.75443)" />
+    <rect
+       style="fill:#f1e828;fill-opacity:0.94709018;stroke-width:0.26458332"
+       id="rect1767-3"
+       width="97.515541"
+       height="48.380955"
+       x="-847.2691"
+       y="-12.789254"
+       ry="24.190477"
+       rx="44.598873" />
+    <circle
+       style="fill:#474521;fill-opacity:0.87830685;stroke-width:0.26458332"
+       id="path1824"
+       cx="-823.98828"
+       cy="10.494082"
+       r="5.2916665" />
+    <circle
+       style="fill:#474521;fill-opacity:0.87830685;stroke-width:0.26458332"
+       id="path1824-8"
+       cx="-808.86926"
+       cy="10.494083"
+       r="5.2916665" />
+    <circle
+       style="fill:#474521;fill-opacity:0.87830685;stroke-width:0.26458332"
+       id="path1824-3"
+       cx="-792.9942"
+       cy="11.250036"
+       r="5.2916665" />
+  </g>
+</svg>

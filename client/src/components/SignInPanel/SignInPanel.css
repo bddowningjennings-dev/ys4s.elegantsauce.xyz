@@ -1,0 +1,133 @@
+.SignInPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(88, 88, 88, 0.698);
+  background-image: url('../../assets/1520391627786.jpeg');
+  background-size: cover;
+  background-position: left top;
+  transition: box-shadow .25s;
+  box-shadow: 0 8px 17px 15px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 70px 0;
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 40px;
+  min-height: 280px;
+  padding-bottom: 120px;
+  margin-bottom: 50px;
+}
+.Form {
+  width: 25%;
+  min-width: 225px;
+  display: flex;
+  border-radius: 10px;
+  border-top-left-radius: 50px;
+  flex-direction: column;
+  height: 100%;
+  min-height: 250px;
+  align-items: center;
+  padding: 40px 30px;
+  background-color: rgba(157, 205, 241, 0.932);
+
+  transition: box-shadow .25s;
+  box-shadow: 0 8px 17px 15px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* box-shadow: 10px 12px 17px 25px rgba(94, 70, 70, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+
+  /* background-color: rgba(194, 216, 233, 0.897); */
+  /* background-color: rgba(194, 216, 233, 0.795); */
+  /* error color? */
+  /* background-color: rgba(233, 194, 194, 0.795); */
+}
+.SignInPanel .Form  > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 250px;
+}
+.SignInPanel .Form  input, .SignInPanel .buttons button {
+  width: 90%;
+  margin-bottom: 5px;
+  padding: 8px 5%;
+  border-radius: 8px;
+  /* border: none; */
+
+    padding: 18px 5%;
+    padding-bottom: 10px;
+    resize: none;
+    border-width: 0;
+    color: #1864b1;
+    /* color: #53595f; */
+    /* background-color: #F8FBFC; */
+    margin-bottom: 10px;
+
+  box-shadow: 0 7px 7px 1px rgba(0, 0, 0, 0.2), 4px 6px 2px 0 rgba(0, 0, 0, 0.19);
+}
+.SignInPanel .buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: 100%; */
+}
+
+.SignInPanel .buttons button {
+  /* background-color: rgb(79, 133, 204); */
+  background-color: rgb(79, 133, 204);
+  color: white;
+  width: 100%;
+  margin-bottom: 0;
+  margin-top: 5px;
+  background: linear-gradient(to right,#2796d0,#48a199cc);
+  /* background: linear-gradient(to right,#47b5f0,#55c0eb); */
+  /* background: linear-gradient(to right,#8d9ea7,#92d4ee); */
+  
+}
+.SignInPanel .Form  .buttons button:hover{
+  background: linear-gradient(to right,#47b5f0,#4493b3);
+  
+  /* background: linear-gradient(to right,#2796d0,#48a199cc); */
+  /* background: linear-gradient(to right,#2796d0,#48a19a); */
+}
+
+.SignInPanel .Form > button {
+  /* background-color: rgb(131, 139, 139); */
+  background-color:  rgb(188, 209, 209);
+/* color: white; */
+color: rgb(255, 255, 255);
+/* color: rgb(87, 78, 78); */
+margin-bottom: 0;
+  margin-bottom: 0;
+  margin-top: 10px;
+  padding: 15px 5%;
+  border-radius: 8px;
+  border: none;
+  width: 25%;
+  background: linear-gradient(to right,#2796d0,#48a199cc);
+  min-width: 250px;
+
+  box-shadow: 0 7px 7px 1px rgba(0, 0, 0, 0.2), 4px 6px 2px 0 rgba(0, 0, 0, 0.19);
+  /* background: linear-gradient(to right, #e7e54fec, #979667d2); */
+  /* background: linear-gradient(to right,#f0ed47,#c4b5a3ec); */
+  /* background: linear-gradient(to right,#47b5f0,#55c0eb); */
+}
+.SignInPanel .Form  > button:hover {
+  background: linear-gradient(to right,#47b5f0,#4493b3);
+  /* background: linear-gradient(to right,#f0ed47,#c4b5a3ec); */
+
+}
+/* #loading-img {
+  width: 200px;
+} */
+#loading-img {
+  width: 200px;
+  animation: loading-spin infinite 1s linear;
+  margin-bottom: 30px;
+  /* height: 80px; */
+}
+.loadingMsg {
+  font-size: 30px;
+  color: white;
+}
+@keyframes loading-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

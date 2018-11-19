@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (unknown)"
+   sodipodi:docname="logo.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       y2="245.314"
+       x2="135.425"
+       y1="51.811"
+       x1="135.425"
+       gradientUnits="userSpaceOnUse"
+       id="gradient-0">
+      <stop
+         id="stop78"
+         style="stop-color: rgba(239, 244, 248, 1)"
+         offset="0" />
+      <stop
+         id="stop80"
+         style="stop-color: rgba(168, 195, 217, 1)"
+         offset="1" />
+    </linearGradient>
+    <radialGradient
+       r="94.954"
+       cy="148.562"
+       cx="135.425"
+       gradientUnits="userSpaceOnUse"
+       id="gradient-1">
+      <stop
+         id="stop83"
+         style="stop-color: rgba(239, 244, 248, 1)"
+         offset="0" />
+      <stop
+         id="stop85"
+         style="stop-color: rgba(168, 195, 217, 1)"
+         offset="1" />
+    </radialGradient>
+    <pattern
+       viewBox="0 0 100 100"
+       patternUnits="userSpaceOnUse"
+       height="25"
+       width="25"
+       y="0"
+       x="0"
+       id="pattern-0">
+      <rect
+         id="rect88"
+         style="fill: black;"
+         height="100"
+         width="50"
+         y="0"
+         x="0" />
+    </pattern>
+    <pattern
+       xlink:href="#pattern-0"
+       patternTransform="matrix(1, 0, 0, 1, 122.92527, 136.062141)"
+       id="pattern-0-0" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-88.571429"
+     inkscape:cy="560"
+     inkscape:document-units="mm"
+     inkscape:current-layer="svg98"
+     showgrid="true"
+     showguides="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1053"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:lockguides="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid141" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <svg
+       id="svg98"
+       version="1.1"
+       viewBox="0 0 272.21 328.013">
+      <defs
+         id="defs92">
+        <linearGradient
+           y2="245.314"
+           x2="135.425"
+           y1="51.811"
+           x1="135.425"
+           gradientUnits="userSpaceOnUse"
+           id="linearGradient121">
+          <stop
+             id="stop117"
+             style="stop-color: rgba(239, 244, 248, 1)"
+             offset="0" />
+          <stop
+             id="stop119"
+             style="stop-color: rgba(168, 195, 217, 1)"
+             offset="1" />
+        </linearGradient>
+        <radialGradient
+           r="94.954"
+           cy="148.562"
+           cx="135.425"
+           gradientUnits="userSpaceOnUse"
+           id="radialGradient127">
+          <stop
+             id="stop123"
+             style="stop-color: rgba(239, 244, 248, 1)"
+             offset="0" />
+          <stop
+             id="stop125"
+             style="stop-color: rgba(168, 195, 217, 1)"
+             offset="1" />
+        </radialGradient>
+        <pattern
+           viewBox="0 0 100 100"
+           patternUnits="userSpaceOnUse"
+           height="25"
+           width="25"
+           y="0"
+           x="0"
+           id="pattern131">
+          <rect
+             id="rect129"
+             style="fill: black;"
+             height="100"
+             width="50"
+             y="0"
+             x="0" />
+        </pattern>
+        <pattern
+           xlink:href="#pattern-0"
+           patternTransform="matrix(1, 0, 0, 1, 122.92527, 136.062141)"
+           id="pattern133" />
+      </defs>
+      <path
+         style="fill:#eacc00;fill-opacity:0.62814069"
+         d="M 138.6 46 C 76.3 46 25.9 96.5 25.9 158.7 C 25.9 195.2 45.3 223.2 70.1 248.2 L 139.4 315.3 L 139.4 271.5 C 201.3 271.1 251.4 220.8 251.4 158.8 C 251.3 96.5 200.8 46 138.6 46 Z M 203.4 183.3 C 199.7 191.8 194.7 199.3 188.3 205.7 C 181.9 212.1 174.5 217.2 165.9 221 C 157.3 224.8 148.1 226.6 138.3 226.6 C 128.4 226.6 119.1 224.7 110.6 221 C 102 217.2 94.6 212.2 88.3 205.8 C 82 199.4 77 192 73.3 183.4 C 69.6 174.8 67.8 165.7 67.8 156.1 C 67.8 146.4 69.6 137.3 73.3 128.7 C 77 120.1 82 112.6 88.3 106.3 C 94.6 99.9 102 94.9 110.6 91.1 C 119.2 87.3 128.4 85.5 138.3 85.5 C 148.1 85.5 157.3 87.4 165.9 91.1 C 174.5 94.9 182 100 188.3 106.4 C 194.7 112.8 199.7 120.3 203.4 128.8 C 207.1 137.3 208.9 146.4 208.9 156.1 C 208.9 165.7 207 174.8 203.4 183.3 Z"
+         class="st1"
+         id="XMLID_23_" />
+      <path
+         d="M 200.351 229.655 C 250.752 193.036 261.844 122.556 225.284 72.235 C 203.829 42.706 171.677 31.457 136.918 25.808 L 41.413 12.257 L 67.158 47.692 C 17.315 84.399 6.349 154.541 42.791 204.7 C 79.491 255.043 150.03 266.215 200.351 229.655 Z M 67.224 156.665 C 65.221 147.614 64.857 138.607 66.273 129.668 C 67.689 120.728 70.678 112.253 75.402 104.123 C 80.126 95.994 86.511 89.13 94.439 83.37 C 102.449 77.551 111.089 73.622 120.141 71.619 C 129.332 69.638 138.258 69.334 147.116 70.808 C 155.975 72.283 164.37 75.331 172.418 80.113 C 180.466 84.896 187.271 91.2 192.914 98.967 C 198.616 106.814 202.508 115.234 204.57 124.367 C 206.631 133.499 206.995 142.506 205.601 151.305 C 204.266 160.186 201.218 168.581 196.494 176.71 C 191.77 184.839 185.385 191.703 177.376 197.522 C 169.448 203.283 160.888 207.153 151.755 209.215 C 142.564 211.195 133.499 211.478 124.64 210.003 C 115.701 208.587 107.247 205.458 99.258 200.757 C 91.268 196.055 84.463 189.751 78.762 181.903 C 73.119 174.137 69.307 165.658 67.224 156.665 Z"
+         class="st1"
+         id="path-1"
+         style="fill:#00cc00;fill-opacity:0.49246231" />
+      <path
+         style="mix-blend-mode:exclusion;fill:#4568f1;fill-opacity:0.46231157"
+         d="M 151.046 53.128 C 175.402 58.202 195.013 70.972 211.615 93.822 C 226.384 116.182 232.614 138.979 229.667 165.405 C 225.034 191.539 213.464 211.787 191.24 227.934 C 169.015 244.081 147.006 247.926 121.829 243.754 C 94.82 239.092 74.24 227.023 58.361 205.167 C 41.76 182.317 37.609 158.315 42.241 132.179 C 46.875 106.045 60.133 86.09 81.392 70.644 C 102.65 55.2 126.062 48.816 151.046 53.128 Z"
+         class="st1"
+         id="path-2" />
+      <path
+         style="fill:#ea3100;fill-opacity:0.62814069"
+         d="M 107.812 178.646 C 100.812 171.146 97.312 162.246 97.312 150.746 C 97.812 139.846 101.312 130.846 108.812 122.846 C 116.812 115.346 125.712 111.446 137.212 111.446 C 148.712 111.446 157.112 115.446 164.612 122.846 C 172.612 130.846 176.612 139.746 176.612 150.746 C 176.612 162.246 172.112 171.146 164.112 178.646 C 156.112 186.146 146.712 189.546 135.712 189.546 C 124.712 189.546 115.212 186.046 107.812 178.646 Z"
+         class="st1"
+         id="XMLID_8_" />
+    </svg>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+/* .Login {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  min-width: 250px;
+} */
+.Login .Error {
+  background-color: white;
+  margin-bottom: 30px;
+  padding: 20px 10px;
+  border-radius: 9px;
+  color: red;
+}

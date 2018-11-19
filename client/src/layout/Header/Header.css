@@ -1,0 +1,68 @@
+.Header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+}
+.Header .header-top {
+  min-height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 0.85em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  transition: box-shadow .25s;
+  box-shadow: 0 8px 17px 15px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: linear-gradient(to right,#2796d0,#12e0cf);
+  margin-bottom: 20px;
+  padding: 10px 0;
+
+}
+.Header .header-top .spacer {
+  min-width: 180px;
+}
+.Header .header-top button#logout {
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 15px;
+  color: white;
+}
+.Header .header-top button#logout:hover {
+  background-color: rgb(208, 230, 214);
+  color: black;
+}
+.Header .header-top .title {
+  color: rgb(255, 255, 255);
+  margin: 0 30px;
+  font-weight: bolder;
+  min-width: 180px;
+}
+.Header .header-top .user_icon {
+  /* margin: 40px 0; */
+  margin-right: 8px;
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  background-size: cover; 
+  background-position: center;
+  transform: rotate(45deg); 
+  background-repeat: no-repeat;
+}
+.Header .header-top .header_left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.Header .header-bottom, .Header .header-bottom a {
+  align-self: flex-end;
+  margin-right: 50px;
+  margin-bottom: 25px;
+  color: rgb(89, 92, 85);
+}
+

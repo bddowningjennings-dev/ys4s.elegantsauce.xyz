@@ -1,0 +1,112 @@
+.Uploader {
+  margin: 10px 0;
+  width: 80%;
+  /* width: 90%; */
+  /* background-color: rgba(9, 241, 241, 0.185); */
+  /* background-color: rgb(234, 250, 242); */
+  background-color: rgba(157, 205, 241, 0.788);
+
+  align-self: center;
+  display: flex; 
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 30px;
+  border-top-right-radius: 5px;
+
+  transition: box-shadow .25s;
+  box-shadow: 0 8px 47px 15px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+  padding: 15px 0;
+}
+#uploader_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#uploader_form input, textarea {
+  width: 85%;
+  padding: 20px 15px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: box-shadow .25s;
+  /* box-shadow: 1px 12px 57px 15px rgba(94, 70, 70, 0.2), 1px 2px 1px 0 rgba(0, 0, 0, 0.19); */
+
+  box-shadow: 0 7px 7px 1px rgba(0, 0, 0, 0.2), 4px 6px 2px 0 rgba(0, 0, 0, 0.19);
+}
+.new_button {
+  padding: 8px 5%;
+  background:#00ad2d;
+  color:#fff;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  cursor: pointer;
+}
+.hide_file {
+    display: none;
+}
+.prices {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.prices input {
+  width: 85%;
+  padding: 10px 5%;
+  border: none;
+}
+.Uploader button {
+  border: none;
+  width: 250px;
+  padding: 15px 25px;
+  margin: 30px;
+  background: linear-gradient(to right,#2796d0,#48a199cc);
+
+  /* background:#00ad2d; */
+  color:#fff;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: box-shadow .25s;
+  box-shadow: 0 1px 18px 1px rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.Uploader button:hover {
+  background: linear-gradient(to right,#47b5f0,#4493b3);
+
+}
+#files_info {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  color: gray;
+}
+#filerClick {
+  border-radius: 8px;
+  background-color: white;
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#preview {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  padding: 0 4%;
+  width: 92%;
+  max-width: 92%;
+  flex-wrap: wrap;
+}
+
+.submit_row {
+  height: 45px;
+  padding-bottom: 20px;
+}
+#submit {
+  height: 45px;
+  padding: 0 20px;
+}

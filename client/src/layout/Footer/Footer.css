@@ -1,0 +1,51 @@
+
+.Footer {
+  width: 100%;
+}
+.Footer .footer-bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding: 20px 0; */
+  transition: box-shadow .25s;
+  box-shadow: 0 8px 17px 15px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: linear-gradient(to right,#1f6d66c0,#e0a912dc);
+  z-index: 2;
+  /* background: linear-gradient(to right,#1f6d46c0,#e0a912dc); */
+  height: 250px;
+}
+
+.Footer .footer-top {
+  width: 100%;
+  
+  transition: box-shadow .25s;
+  box-shadow: 0 8px 17px 15px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: linear-gradient(to right,#2796d0,#12e0cf);
+  z-index: 3;
+}
+
+.Footer .social-links {
+  width: 70%;
+  height: 100%;
+  /* height: 300px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(88, 81, 81, 0.514);
+  transition: box-shadow .25s;
+  box-shadow: 0 8px 7px 1px rgba(0, 0, 0, 0.2), 0 6px 2px 0 rgba(0, 0, 0, 0.19);
+}
+.Footer .social-links a {
+  width: 50px;
+  color: white;
+  margin: 0 20px;
+}
+a.social-icon.portfolio {
+  width: 65px;
+  margin-top: -15px;
+}
+a.social-icon.github {
+  width: 55px;
+}
