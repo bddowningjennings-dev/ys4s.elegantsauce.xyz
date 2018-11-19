@@ -11,6 +11,7 @@ app.get('/', (req, res) => res.sendFile(__dirname + '/build/index.html'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true, limit: '25mb'}));
 app.use(express.static(__dirname + '/build'))
+app.use(express.static(__dirname))
 
 require('./server/config/mongoose')(DATABASE)
 require('./server/config/routes')(app)
