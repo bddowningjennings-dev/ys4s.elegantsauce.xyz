@@ -102,6 +102,10 @@
   .Main #logo {
     transition: box-shadow .25s;
     box-shadow: 10px 12px 57px 15px rgba(94, 70, 70, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 20%;
+    /* top: -20px; */
+    align-self: flex-start;
+    margin: 10px;
   }
   #magic-img {
     width: 85px;
@@ -124,9 +128,6 @@
   }
   .Uploader {
     width: 98%;
-  }
-  .Main #logo {
-    width: 70%;
   }
 }
 

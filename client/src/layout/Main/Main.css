@@ -36,16 +36,21 @@
 
 @media screen and (max-width: 620px) {
   .Main #logo {
-    width: 120px;
-    top: -20px;
-    align-self: center;
+    width: 40px;
+    /* top: -10px; */
+    top: 120px;
+    align-self: flex-start;
     margin: 10px;
   }
-  .Header {
+  .Header .header-top .title {
+    /* margin-top: 60px; */
     display: none;
   }
+  .Header .header-top {
+    padding-left: 20px;
+  }
   .Main {
-    margin-top: 120px;
+    /* margin-top: 120px; */
   }
 }
 .Demoer {
