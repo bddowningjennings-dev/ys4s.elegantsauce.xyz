@@ -7,12 +7,12 @@ import Register from './Register/Register'
 import imgThing from '../../assets/spinner.svg'
 // import imgThing from '../../assets/logo.svg'
 
-import { fetcher } from '../../helpers/helpers'
+import { userFetcher } from '../../helpers/helpers'
 
 const Aux = props => props.children
 
 const validateEmail = email => {
-  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   return re.test(String(email).toLowerCase());
 }
 
@@ -66,9 +66,9 @@ class SignInPanel extends Component {
       try {
         let user
         if (registering) {
-          user = await fetcher.register(this.state)
+          user = await userFetcher.register(this.state)
         } else {
-          user = await fetcher.login(this.state)
+          user = await userFetcher.login(this.state)
         }
         if (user.token) {
           handleLogin(user)
@@ -97,7 +97,7 @@ class SignInPanel extends Component {
 
     let loadingContent = (
       <Aux>
-        <img id="loading-img" src={imgThing} />
+        <img id="loading-img" alt="loading..." src={imgThing} />
         <p className="loadingMsg">Loading profile...</p>
       </Aux>
     )

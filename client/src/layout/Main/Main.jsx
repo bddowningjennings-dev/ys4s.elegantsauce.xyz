@@ -3,16 +3,18 @@ import './Main.css'
 
 import SignInPanel from '../../components/SignInPanel/SignInPanel'
 import UserDashboard from '../../components/UserDashboard/UserDashboard'
+import AdminDashboard from '../../components/AdminDashboard/AdminDashboard'
 import Demoer from '../../components/Demoer/Demoer'
 
 import logoIMG from '../../assets/mountain_4.svg'
 import demoIMG from '../../assets/new.png'
 
 const main = props => {
-  const { isLoggedIn } = props
-
+  const { isLoggedIn, admin } = props
+console.log('main isLoggedIn', isLoggedIn)
   let content = <SignInPanel { ...props } />
-  if ( isLoggedIn ) content = <UserDashboard { ...props } />
+  if (isLoggedIn) content = <UserDashboard {...props} />
+  if (admin) content = <AdminDashboard />
 
   const demoArr = [
     {
@@ -44,16 +46,6 @@ const main = props => {
       <img id="logo" onClick={() => alert('clicked')} src={logoIMG} alt="" />
       {content}
       {!isLoggedIn && <Demoer demos={demoArr} />}
-
-      {/* <Demo demoImg={demoIMG} demoText={`Perfect thing`} /> */}
-      {/* <div className="info">
-        <div className="demo-img" style={{backgroundImage: `url(${demoImg})`}} />
-        <div className="demo-info">Perfect thing</div>
-      </div>
-      <div className="info">
-        <img className="demo-img" src={demoImg} alt="" srcset="" />
-        <div className="demo-info">Perfect thing</div>
-      </div> */}
     </main>
   )
 }

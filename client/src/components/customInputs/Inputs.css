@@ -1,0 +1,54 @@
+.SelectInput > div > select {
+  display: flex;
+  height: 100%;
+}
+div.custom-select {
+  overflow: auto;
+  max-height: 150px;
+}
+.input-button {
+  min-height: 30px;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  /* background-color: inherit; */
+  background-color: rgba(187, 190, 189, 0.13);
+}
+input {
+  width: 300px;
+  border: none;
+  margin: 10px 0;
+  padding: 5px 5px;
+  padding-top: 10px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.349);
+}
+.input-button:hover {
+  cursor: pointer;
+  background-color: rgba(187, 190, 189, 0.192);
+}
+button.input-button:focus {
+  background-color: #0dd15466;
+}
+.select-option {
+  background-color: white;
+}
+.select-option:hover {
+  background-color: #0dd15466;
+}
+.input-label {
+  margin-right: 15px;
+}
+
+.input-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.selected {
+  background-color: #0dd15523;
+}
+.valid {
+  background-color: #0dd15466;
+}
+

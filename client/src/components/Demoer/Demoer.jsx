@@ -37,10 +37,14 @@ const initializeState = () => {
 
 class Demoer extends Component {
   state = initializeState()
+  unmounted = false
 
-  componentDidMount = () => {
+  componentDidMount() {
     const { ms = 7000 } = this.props
     this.updateCount(ms)
+  }
+  componentWillUnmount() {
+    this.unmounted = true
   }
 
   forceCount = (dir = 1) => async e => {
@@ -63,6 +67,7 @@ class Demoer extends Component {
     if (this.state.cancel) {
       this.setState(prevState => ({ cancel: false }), async () => {
         await sleep(8000)
+        if (this.unmounted) return
         this.updateCount(ms)
       })
       return
@@ -76,13 +81,14 @@ class Demoer extends Component {
       const showing = document.getElementById(`demo_${show}`)
       showing.classList.remove('hidden')
       await sleep(ms)
+      if (this.unmounted) return
       this.updateCount(ms)
     })
   }
   render() {
-    const { count } = this.state
+    // const { count } = this.state
     const { demos } = this.props
-    let show = count % demos.length
+    // let show = count % demos.length
     let demoArr = demos.map(demoMapper)
     // let demoArr = demos.map(demoMapper(show))
 

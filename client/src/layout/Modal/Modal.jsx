@@ -42,6 +42,7 @@ const modal = ({ toggleModal, showModal }) => {
       <img
         id="magic-img"
         src={magicImg}
+        alt='Tommy'
         onClick={toggleModal}
       />
         {msg}

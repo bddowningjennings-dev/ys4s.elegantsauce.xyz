@@ -5,16 +5,16 @@ const Users = require('../models/users')
 
 const createLocalStorageData = user => ({
   id: user._id,
-  profile_img: user.profile_img,
   email: user.email,
   userName: user.userName,
+  profile_img: user.profile_img,
 })
 
 class User {
   async index(req, res) {
     try {
-      const user = await Users.find({})
-      return res.json(user)
+      const users = await Users.find({}).populate('uploads').exec()
+      return res.json(users)
     } catch(err) { return res.json(err) }
   }
   async create(req, res) {
@@ -36,12 +36,19 @@ class User {
     }
   }
   async show(req, res) {
-    const { params } = req
+    const { id } = req.params
     try {
-      const user = await Users.findById(params.id).populate('uploads').exec()
-      // const { password, stripPassword } = user
+      const user = await Users.findById(id).populate('uploads').exec()
+      console.log('before')
+
+      if ( process.env.ADMIN_EMAILS.split(' ').includes(`${ user.email }`) ) {
+        const data = { ...createLocalStorageData(user), admin: true }
+        return res.json(data)
+      }
+console.log('after')
       return res.json({ ...createLocalStorageData(user), uploads: user.uploads })
-    } catch(err) { 
+    } catch (err) { 
+      console.log('err', err)
       return res.json(err)
     }
   }
@@ -98,54 +105,5 @@ class User {
     } catch(err) { return res.json(err) }
   }
 }
-
-
-
-
-  // create(req, res) {
-  //   let photos = [], photos_long = [], attachments = []
-  //   let html = `<p>${ req.params.id }</p><p>${req.body.title}</p><p>${req.body.msg}</p>`
-  //   for (let file of req.body.files) {
-  //     photos_long.push(__dirname + '/../../' + file.path)
-  //     photos.push('uploads/' + file.filename)
-  //     attachments.push({
-  //         filename: file.filename,
-  //         path: __dirname + '/../../' + file.path,
-  //         cid: file.filename
-  //     })
-  //     html += `<p><img style="width:500px" src="cid:${file.filename}"/></p>`
-  //   }
-  //   req.body.photos = photos
-  //   req.body.photos_long = photos_long
-  //   req.body.user = req.params.id
-  //   User.create(req.body, (err, upload) => {
-  //     if (err) return res.json(err)
-  //     User.findOne({_id: req.params.id}, (err, user) => {
-  //       user.uploads.push(upload._id)
-  //       user.save()
-  //       html = `<p>${user.email}</p>` + html
-  //       let body = { html, attachments }
-  //       // mailer('YS4SEMAIL', body)
-  //     })
-  //     return res.json(upload)
-  //   })
-  // }
-  // show(req, res) {
-  //   User.findOne({ _id: req.params.up_id }, (err, upload) => {
-  //     if (err) return res.json(err)
-  //     return res.json(upload)
-  //   })
-  // }
-  // destroy(req, res) {
-  //   if (!isGranted(req.params.id, req.params.up_id))
-  //     return res.json({ error: 'not granted'})
-  //   User.findByIdAndRemove(req.params.up_id, (err, upload) => err ? res.json(err) : res.json(upload))
-  // }
-  // update(req, res) {
-  //   if (!isGranted(req.params.id, req.params.up_id))
-  //     return res.json({ error: 'not granted'})
-  //   User.findByIdAndUpdate(req.params.up_id, { $set: req.body }, { new: true }, (err, upload) => {
-  //     return err ? res.json(err) : res.json(upload)})
-  // }
 
 module.exports = new User()

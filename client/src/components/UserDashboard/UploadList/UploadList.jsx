@@ -8,7 +8,6 @@ const uploadMap = upload => <Upload key={ upload._id } upload={ upload } />
 const uploadList = ({ uploads }) =>
   // (
   {
-  console.log('list', uploads)
   return <div className='UploadList'>
     { uploads.map(uploadMap) }
   </div>

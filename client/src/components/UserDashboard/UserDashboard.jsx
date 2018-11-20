@@ -5,7 +5,6 @@ import Uploader from './Uploader/Uploader'
 import UploadList from './UploadList/UploadList'
 
 const initializeState = ({ user, uploads = [] }) => {
-  console.log('uploads', uploads)
   return ({
   user,
   uploads,

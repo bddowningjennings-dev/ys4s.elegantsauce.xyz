@@ -7,7 +7,9 @@ const photoMap = photo => (
   <img
     key={photo}
     alt={defaultImg}
-    src={`${photo}`} />
+    src={`/server/uploads/${photo}`} //dev path
+    // src={`${photo}`}
+  />
 )
 
 const upload = ({ upload: { title, msg, photos } }) => (

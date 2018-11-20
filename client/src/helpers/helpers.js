@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { resolve } from 'path';
 
 export const aux = props => props.children
 
@@ -20,7 +19,7 @@ export const clearLocalStorage = () => {
   localStorage.removeItem('profile_img')
 }
 
-export const fetcher = {
+export const userFetcher = {
   login: async state => {
     const options = {
       url: '/api/login',
@@ -53,13 +52,45 @@ export const fetcher = {
   },
   logout: clearLocalStorage,
   getUser: async id => {
+    if (!id) return
+    const token = localStorage.getItem('token')
+    console.log('getuser token', token)
+
     const options = {
       url: `/api/users/${id}`,
       method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
     }
     try {
       const { data: user } = await axios(options)
+      console.log('fetcher user', user)
+
       return user
+    } catch(err) { throw err }
+  },
+  adminGetUsers: async id => {
+    if (!id) return
+    const token = localStorage.getItem('token')
+    console.log('adminget token', token)
+
+    const options = {
+      url: `/api/admin/${id}`,
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    }
+    try {
+      const { data: users } = await axios(options)
+      console.log('admingetusers user', users)
+
+      return users
     } catch(err) { throw err }
   }
 }
@@ -73,11 +104,11 @@ export const uploadFetcher = {
     try {
       const options = {
         url: `/api/users/${id}/uploads`,
-        headers: new Headers({
+        headers: {
           'Authorization': `Bearer ${token}`,
           'Accept': 'application/json',
           'Content-Type': 'application/json'
-        }),
+        },
         method: 'POST',
         data: state
       }
@@ -94,9 +125,9 @@ export const uploadFetcher = {
     data.append('upl', blob, 'blobby')
     const options = {
       url: `/api/users/${id}/photo`,
-      headers: new Headers({
+      headers: {
         'Authorization': `Bearer ${ token }`
-      }),
+      },
       method: 'POST',
       data
     }
@@ -130,37 +161,4 @@ export const uploadFetcher = {
     
     return canvas
   },
-  // otherCreate: async () => {
-
-  //   let token = localStorage.getItem('token')
-  //   let user = localStorage.getItem('user')
-
-  //   fetch(`/users/${user}/uploads`, {
-  //     headers: new Headers({
-  //       'Authorization': `Bearer ${token}`,
-  //       'Accept': 'application/json',
-  //       'Content-Type': 'application/json'
-  //     }),
-  //     method: 'post',
-  //     body: JSON.stringify({
-  //       ...this.state
-  //     })
-  //   })
-  //   .then(data => data.json())
-  //   .then(upload => {
-  //     this.setState({
-  //       title: '',
-  //       msg: '',
-  //       price_range: '',
-  //       priceHigh: 0,
-  //       priceLow: 0,
-  //       files: [],
-  //       validRange: false
-  //     })
-  //     this.props.addUpload(upload)
-  //     this.props.filterActive(null)
-  //     document.getElementById('upload_toggler').innerHTML = "New Upload"
-  //   })
-  //   .catch(err=>console.log(err))
-  // }
 }

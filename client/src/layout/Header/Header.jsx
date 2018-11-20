@@ -1,7 +1,6 @@
 import React from 'react'
 import './Header.css'
 
-import { aux as Aux } from '../../helpers/helpers'
 import logoIMG from '../../assets/ys4s_logo.svg'
 
 const header = props => {

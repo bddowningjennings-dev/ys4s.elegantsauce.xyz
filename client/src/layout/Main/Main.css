@@ -47,7 +47,10 @@
     display: none;
   }
   .Header .header-top {
-    padding-left: 20px;
+    /* padding-left: 20px; */
+  }
+  button#logout {
+    padding: 0;
   }
   .Main {
     /* margin-top: 120px; */

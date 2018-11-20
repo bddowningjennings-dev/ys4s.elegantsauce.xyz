@@ -6,13 +6,15 @@ import Main from './layout/Main/Main'
 import Modal from './layout/Modal/Modal'
 import Footer from './layout/Footer/Footer'
 
-import { clearLocalStorage, fetcher } from './helpers/helpers'
+import { clearLocalStorage, userFetcher } from './helpers/helpers'
 
 const initializeState = () => {
   const user = localStorage.getItem('user')
   return {
     user,
+    error: '',
     uploads: [],
+    admin: false,
     showModal: false,
     isLoggedIn: user ? true : false,
   }
@@ -20,29 +22,47 @@ const initializeState = () => {
 
 class App extends Component {
   state = initializeState()
-  tommy = null
 
   async componentDidMount() {
     const id = localStorage.getItem('user')
     if (!id) return
 
-    const user = await fetcher.getUser(id)
-    if (!user) return alert('user not found')
+    try {
+      const user = await userFetcher.getUser(id)
+      console.log('app user', user)
+      if (user.error) {
+        const error = `error: ${user.error}`
+        // return alert('user not found')
 
-    this.setState( prevState => ({
-      ...prevState,
-      user: user.userName,
-      uploads: user.uploads || [],
-    })) 
+        this.setState( prevState => ({ error })) 
+      } else {
+
+        this.setState( prevState => ({
+          ...prevState,
+          admin: user.admin,
+          user: user.userName,
+          uploads: user.uploads || [],
+        })) 
+      }
+
+    } catch(err) { console.log(err) }
   }
 
   handleLogin = user => {
-    this.setState( prevState => ({
-      ...prevState,
-      isLoggedIn: true,
-      user: user.userName,
-      uploads: user.uploads,
-    }))
+    if (!user.userName) {
+      const error = `error: ${user.error}`
+      // return alert('user not found')
+
+      this.setState( prevState => ({ error })) 
+    } else {
+      this.setState( prevState => ({
+        ...prevState,
+        isLoggedIn: true,
+        admin: user.admin || false,
+        user: user.userName,
+        uploads: user.uploads,
+      }))
+    }
   }
   handleLogout = e => {
     e && e.preventDefault()
@@ -57,7 +77,7 @@ class App extends Component {
   }
 
   render() {
-    const { isLoggedIn, user, uploads, showModal } = this.state
+    const { isLoggedIn, user, uploads, showModal, admin, error } = this.state
     const headerProps = {
       user,
       isLoggedIn,
@@ -65,6 +85,7 @@ class App extends Component {
     }
     const mainProps = {
       user,
+      admin,
       uploads,
       isLoggedIn,
       handleLogin: this.handleLogin,
@@ -78,7 +99,8 @@ class App extends Component {
       <div className="App" >
         <Modal {...modalProps} />
         <Header {...headerProps} />
-        <Main {...mainProps} />
+        {console.log('error', error) || error}
+        {(!error) && <Main {...mainProps} />}
         <Footer />
       </div>
     )

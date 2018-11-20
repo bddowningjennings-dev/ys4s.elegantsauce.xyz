@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './PhotoPicker.css'
 
 import previewImg from '../../../../assets/preview.png'
-import waitingImg from '../../../../assets/waiting.png'
+// import waitingImg from '../../../../assets/waiting.png'
 
 import { uploadFetcher } from '../../../../helpers/helpers'
 

@@ -22,25 +22,25 @@ import twitterIMG from '../../assets/001-twitter.svg'
             href="https://elegantsauce.xyz"
             target="blank"
             className="social-icon portfolio">
-            <img src={portfolioIMG} />
+            <img alt="elegantsauce" src={portfolioIMG} />
           </a>
           <a
             href="https://github.com/bddowningjennings-dev"
             target="blank"
             className="social-icon github">
-            <img src={githubIMG} />
+            <img alt="github" src={githubIMG} />
           </a>
           <a
             href="https://www.linkedin.com/in/bddowningjennings/"
             target="blank"
             className="social-icon">
-            <img src={linkedinIMG} />
+            <img alt="linkedin" src={linkedinIMG} />
           </a>
           <a
             href="https://twitter.com/blahmountain"
             target="blank"
             className="social-icon">
-            <img src={twitterIMG} />
+            <img alt="twitter" src={twitterIMG} />
           </a>
           <div className="spacer" /> 
         </div>
