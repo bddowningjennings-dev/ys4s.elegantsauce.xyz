@@ -36,6 +36,7 @@ class App extends Component {
       } else {
         this.setState( prevState => ({
           ...prevState,
+          isLoggedIn: true,
           admin: user.admin,
           user: user.userName,
           uploads: user.uploads || [],

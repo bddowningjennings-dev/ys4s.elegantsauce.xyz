@@ -11,9 +11,12 @@ import demoIMG from '../../assets/new.png'
 
 const main = props => {
   const { isLoggedIn, admin } = props
+  const id = localStorage.getItem('user')
+
+  let content
+  if (isLoggedIn && id) content = <UserDashboard {...props} />
+  else if (!isLoggedIn && !id) content = <SignInPanel {...props} />
   
-  let content = <SignInPanel { ...props } />
-  if (isLoggedIn) content = <UserDashboard {...props} />
   if (admin) content = <AdminDashboard />
 
   const demoArr = [
@@ -45,7 +48,7 @@ const main = props => {
     <main className="Main">
       <img id="logo" onClick={() => alert('clicked')} src={logoIMG} alt="" />
       {content}
-      {!isLoggedIn && <Demoer demos={demoArr} />}
+      {(!isLoggedIn && !id) && <Demoer demos={demoArr} />}
     </main>
   )
 }

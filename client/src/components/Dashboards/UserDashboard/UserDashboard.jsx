@@ -32,6 +32,12 @@ class UserDashboard extends Component {
   addUpload = upload => {
     this.setState( ({ uploads: prevUploads }) => ({ uploads: [ upload, ...prevUploads ] }))
   }
+  updateUpload = upload => {
+    const { _id: id } = upload
+    const { uploads } = this.state
+    const otherUploads = uploads.filter(upload => upload._id !== id)
+    this.setState({ uploads: [ upload, ...otherUploads ]}, ()=>console.log('new', this.state.uploads))
+  }
 
   render() {
     const { user, uploads, showUploader, filter } = this.state
@@ -44,6 +50,7 @@ class UserDashboard extends Component {
       filter,
       uploads,
       applyFilter: this.applyFilter,
+      updateUpload: this.updateUpload,
     }
 
     let toggleMsg = `Close uploader...`

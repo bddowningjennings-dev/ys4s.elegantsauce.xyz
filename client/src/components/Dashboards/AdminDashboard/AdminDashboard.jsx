@@ -27,6 +27,7 @@ class AdminDashboard extends Component {
       }
     } catch(err) { console.log(err) }
   }
+
   render() {
     const { users, error } = this.state
     return (

@@ -67,12 +67,12 @@ class UploadController {
   //     return res.json({ error: 'not granted'})
   //   Upload.findByIdAndRemove(req.params.up_id, (err, upload) => err ? res.json(err) : res.json(upload))
   // }
-  // update(req, res) {
-  //   if (!isGranted(req.params.id, req.params.up_id))
-  //     return res.json({ error: 'not granted'})
-  //   Upload.findByIdAndUpdate(req.params.up_id, { $set: req.body }, { new: true }, (err, upload) => {
-  //     return err ? res.json(err) : res.json(upload)})
-  // }
+  update(req, res) {
+    // if (!isGranted(req.params.id, req.params.up_id))
+    //   return res.json({ error: 'not granted'})
+    Upload.findByIdAndUpdate(req.params.up_id, { $set: req.body }, { new: true }, (err, upload) => {
+      return err ? res.json(err) : res.json(upload)})
+  }
 }
 
 module.exports = new UploadController()

@@ -3,13 +3,14 @@ import './User.css'
 
 import UploadList from '../../../UploadList/UploadList'
 
-const initializeState = () => ({
+const initializeState = ({ user: { uploads } }) => ({
+  uploads,
   collapsed: true,
   filter: 'active_type',
 })
 
 class User extends Component {
-  state = initializeState()
+  state = initializeState(this.props)
 
   applyFilter = filter => e => {
     e && e.preventDefault()
@@ -20,14 +21,22 @@ class User extends Component {
     this.setState(({ collapsed })=>({ collapsed: !collapsed }))
   }
 
+  updateUpload = upload => {
+    const { _id: id } = upload
+    const { uploads } = this.state
+    const otherUploads = uploads.filter(upload => upload._id !== id)
+    this.setState({ uploads: [ upload, ...otherUploads ]}, ()=>console.log('new', this.state.uploads))
+  }
+
   render() {
-    const { user: { userName, email, profile_img, uploads } } = this.props
-    const { filter, collapsed } = this.state
+    const { user: { userName, email, profile_img } } = this.props
+    const { filter, collapsed, uploads } = this.state
 
     const uploadListProps = {
       filter,
       uploads,
       applyFilter: this.applyFilter,
+      updateUpload: this.updateUpload,
     }
     return (
       <div className='User'>

@@ -3,8 +3,6 @@ import './UploadList.css'
 
 import Upload from './Upload/Upload'
 
-const uploadMap = upload => <Upload key={ upload._id } upload={ upload } />
-
 const filterUploads = uploads => {
   return {
     all_type: uploads,
@@ -14,10 +12,9 @@ const filterUploads = uploads => {
   }
 }
 
-const uploadList = ({ uploads, applyFilter, filter }) =>
-  // (
-{
+const uploadList = ({ uploads, applyFilter, filter, updateUpload }) => {
   const filteredUploads = filterUploads(uploads)
+  const uploadMap = upload => <Upload updateUpload={ updateUpload } key={ upload._id } upload={ upload } />
 
   return <div className='UploadList'>
     

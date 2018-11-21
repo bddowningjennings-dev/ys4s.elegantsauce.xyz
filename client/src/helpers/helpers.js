@@ -116,7 +116,26 @@ export const uploadFetcher = {
       return upload
     } catch(err) { throw err }
   },
-  
+  update: async ({ up_id, ...data }) => {
+    console.log('up_id', data)
+    let id = localStorage.getItem('user')
+    let token = localStorage.getItem('token')
+
+    const options = {
+      url: `/api/users/${id}/uploads/${up_id}`,
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: 'PUT',
+      data
+    }
+    try {
+      const { data: upload } = await axios(options)
+      return upload
+    } catch(err) { console.log(err) }
+  },
   storePhoto: async blob => {
     let token = localStorage.getItem('token')
     let id = localStorage.getItem('user')
@@ -172,6 +191,8 @@ export const dateFormat = date => {
   if (hour === 0)
     hour = 12
   let min = today.getMinutes()
+  if (min < 10)
+    min='0'+min
   let aorp = 'AM'
   if (today.getHours() >= 12 && today.getHours() < 24)
     aorp = 'PM'

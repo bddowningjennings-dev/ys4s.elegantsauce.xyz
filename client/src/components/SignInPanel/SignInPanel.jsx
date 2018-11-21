@@ -73,7 +73,7 @@ class SignInPanel extends Component {
         if (user.token) {
           handleLogin(user)
         } else {
-          this.setState(prevState => ({ ...prevState, loading: false, error: user.err }))
+          this.setState(prevState => ({ ...prevState, loading: false, error: user.error }))
         }
       } catch (err) { console.log(err) }
     })
