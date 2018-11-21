@@ -3,8 +3,8 @@ import './AdminDashboard.css'
 
 import UserList from './UserList/UserList'
 
-import { userFetcher } from '../../helpers/helpers'
-import userFilters from './userFilters';
+import { userFetcher } from '../../../helpers/helpers'
+import userFilters from './userFilters'
 
 const { removeAdmin } = userFilters
 
@@ -33,7 +33,6 @@ class AdminDashboard extends Component {
       <div className='AdminDashboard'>
         {error}
         <UserList users={removeAdmin(users)} />
-        {/* <UserList users={removeAdmin(users)} /> */}
       </div>
     )
   }

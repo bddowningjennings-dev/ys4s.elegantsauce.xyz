@@ -9,14 +9,13 @@ import Footer from './layout/Footer/Footer'
 import { clearLocalStorage, userFetcher } from './helpers/helpers'
 
 const initializeState = () => {
-  const user = localStorage.getItem('user')
   return {
-    user,
+    user: '',
     error: '',
     uploads: [],
     admin: false,
     showModal: false,
-    isLoggedIn: user ? true : false,
+    isLoggedIn: false,
   }
 }
 
@@ -29,14 +28,12 @@ class App extends Component {
 
     try {
       const user = await userFetcher.getUser(id)
-      console.log('app user', user)
+
       if (user.error) {
         const error = `error: ${user.error}`
-        // return alert('user not found')
+        this.setState({ error })
 
-        this.setState( prevState => ({ error })) 
       } else {
-
         this.setState( prevState => ({
           ...prevState,
           admin: user.admin,

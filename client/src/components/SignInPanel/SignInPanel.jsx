@@ -4,7 +4,7 @@ import './SignInPanel.css'
 import Login from './Login/Login'
 import Register from './Register/Register'
 
-import imgThing from '../../assets/spinner.svg'
+import spinnerIMG from '../../assets/spinner.svg'
 // import imgThing from '../../assets/logo.svg'
 
 import { userFetcher } from '../../helpers/helpers'
@@ -97,7 +97,7 @@ class SignInPanel extends Component {
 
     let loadingContent = (
       <Aux>
-        <img id="loading-img" alt="loading..." src={imgThing} />
+        <img id="loading-img" alt="" src={spinnerIMG} />
         <p className="loadingMsg">Loading profile...</p>
       </Aux>
     )

@@ -2,8 +2,8 @@ import React from 'react'
 import './Main.css'
 
 import SignInPanel from '../../components/SignInPanel/SignInPanel'
-import UserDashboard from '../../components/UserDashboard/UserDashboard'
-import AdminDashboard from '../../components/AdminDashboard/AdminDashboard'
+import UserDashboard from '../../components/Dashboards/UserDashboard/UserDashboard'
+import AdminDashboard from '../../components/Dashboards/AdminDashboard/AdminDashboard'
 import Demoer from '../../components/Demoer/Demoer'
 
 import logoIMG from '../../assets/mountain_4.svg'
@@ -11,7 +11,7 @@ import demoIMG from '../../assets/new.png'
 
 const main = props => {
   const { isLoggedIn, admin } = props
-console.log('main isLoggedIn', isLoggedIn)
+  
   let content = <SignInPanel { ...props } />
   if (isLoggedIn) content = <UserDashboard {...props} />
   if (admin) content = <AdminDashboard />

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import './PhotoPicker.css'
 
-import previewImg from '../../../../assets/preview.png'
+import previewImg from '../../../../../assets/preview.png'
 // import waitingImg from '../../../../assets/waiting.png'
 
-import { uploadFetcher } from '../../../../helpers/helpers'
+import { uploadFetcher } from '../../../../../helpers/helpers'
 
 const resizeCanvas = original => {
   let canvas = document.createElement("canvas")
