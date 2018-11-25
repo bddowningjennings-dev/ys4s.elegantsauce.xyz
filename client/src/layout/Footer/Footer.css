@@ -49,3 +49,12 @@ a.social-icon.portfolio {
 a.social-icon.github {
   width: 55px;
 }
+
+a.social-icon:hover {
+	background-color: #cbcbb666;
+  border-radius: 400px;
+  width:35px;
+	padding: 10px;
+  transition: box-shadow .25s;
+  box-shadow: 0 8px 7px 1px rgba(0, 0, 0, 0.2), 0 6px 2px 0 rgba(0, 0, 0, 0.19);
+}

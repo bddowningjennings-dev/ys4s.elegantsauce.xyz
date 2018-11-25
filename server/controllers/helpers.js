@@ -33,7 +33,6 @@ const isAuthorized = async req => {
 }
 
 const isLoggedIn = async (req, res, next) => {
-  console.log('isloggedin isauth', await isAuthorized(req))
   if (await isAuthorized(req)) return next()
   console.log('auth error')
   return res.json({error: 'Auth error'})

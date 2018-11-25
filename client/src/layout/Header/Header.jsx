@@ -36,6 +36,7 @@ const header = props => {
   const headerBottom = (
     <div className="header-bottom">
       PORTFOLIO - <a href="https://elegantsauce.xyz" target="blank">elegantsauce.xyz</a>
+      GitHub: - <a href="https://github.com/bddowningjennings-dev/ys4s.elegantsauce.xyz" target="blank">YS4$ Repo</a>
     </div>
   )
 

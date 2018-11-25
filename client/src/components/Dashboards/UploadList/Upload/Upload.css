@@ -71,4 +71,17 @@ animation: photo-giggle infinite 2000ms linear;
   /* background-color: rgba(255, 255, 0, 0.671); */
 }
 
-
+.upload-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.upload-title {
+  width: 40%;
+}
+.upload-title > button {
+  width: 750px;
+}
+.upload-details {
+  text-align: center;
+}

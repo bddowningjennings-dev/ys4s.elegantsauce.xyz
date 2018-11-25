@@ -78,21 +78,19 @@ class Upload extends Component {
   // }
 
   render() {
-    const { upload } = this.props
-    const { title, msg, photos, updatedAt, createdAt, _id } = upload
+    const { upload: { title, msg, photos, updatedAt, createdAt } } = this.props
     const { hidden } = this.state
+
     const initDate = dateFormat(createdAt)
     const upDate = dateFormat(updatedAt)
     
     const buttons = (
       <div className="upload_buttons">
         <button
-          id={`clear-${_id}`}
           onClick={this.handleUpdate('clear')}>
           Mark <br /> For Sale
         </button>
         <button
-          id={`complete-${_id}`}
           onClick={this.handleUpdate('complete')}>
           Mark <br /> Sold
         </button>
@@ -106,12 +104,22 @@ class Upload extends Component {
 
     return (
       <div className='Upload'>
-        <div className="upload_date">{upDate}</div>
-        <div className="upload_date">{initDate}</div>
-        {`${photos.length} photo(s)`}
-  <button onClick={ this.handleShow } >{ title }</button>
-    {buttons}
+        <div className='upload-header'>
+          <div className='upload-title'>
+    <button onClick={ this.handleShow } >{ title }</button>
+          
+          </div>
 
+          <div className="upload-buttons"> {buttons} </div>
+        </div>
+
+        <div className="upload-details">
+            
+            <div className="upload_date">{upDate}</div>
+            <div className="upload_date">{initDate}</div>
+            {`${photos.length} photo(s)`}
+        </div>
+        
         {(!hidden) &&
           <Aux>
           
