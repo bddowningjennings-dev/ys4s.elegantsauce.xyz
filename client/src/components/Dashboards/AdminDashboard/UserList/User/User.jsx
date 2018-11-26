@@ -6,7 +6,7 @@ import UploadList from '../../../UploadList/UploadList'
 const initializeState = ({ user: { uploads } }) => ({
   uploads,
   collapsed: true,
-  filter: 'active_type',
+  filter: 'new_type',
 })
 
 class User extends Component {
@@ -28,6 +28,10 @@ class User extends Component {
     this.setState({ uploads: [ upload, ...otherUploads ]}, ()=>console.log('new', this.state.uploads))
   }
 
+  removeUpload = upload => {
+    this.setState( ({ uploads }) => ({ uploads: [ ...uploads.filter( up => up._id !== upload._id ) ] }))
+  }
+
   render() {
     const { user: { userName, email, profile_img } } = this.props
     const { filter, collapsed, uploads } = this.state
@@ -37,14 +41,13 @@ class User extends Component {
       uploads,
       applyFilter: this.applyFilter,
       updateUpload: this.updateUpload,
+      removeUpload: this.removeUpload,
     }
     return (
       <div className='User'>
-        <img alt="profile_img" src={profile_img} />
-        {userName} - {email}
+          <button onClick={this.toggleCollapse}><img alt="profile_img" src={profile_img} /> {userName} - {email}</button>
         <section className="user-uploads">
           
-          <button onClick={this.toggleCollapse}>Show</button>
 
           {(!collapsed) && <UploadList {...uploadListProps} />}
           

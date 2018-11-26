@@ -66,3 +66,25 @@
   color: rgb(89, 92, 85);
 }
 
+
+@media screen and (max-width: 620px) {
+  .Header .header-top .title {
+    /* margin-top: 60px; */
+    display: none;
+  }
+  .Header .header-top {
+    /* padding-left: 20px; */
+  }
+  button#logout {
+    padding: 0;
+  }
+  .Header .header-bottom {
+    display: flex;
+    max-width: 50%;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

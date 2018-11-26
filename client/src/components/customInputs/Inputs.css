@@ -1,10 +1,13 @@
+.SelectInput {
+  max-width: 98%;
+}
 .SelectInput > div > select {
   display: flex;
   height: 100%;
 }
 div.custom-select {
-  overflow: auto;
-  max-height: 150px;
+  /* overflow: auto; */
+  /* max-height: 150px; */
 }
 .input-button {
   min-height: 30px;
@@ -16,6 +19,7 @@ div.custom-select {
 }
 input {
   width: 300px;
+  max-width: 90%;
   border: none;
   margin: 10px 0;
   padding: 5px 5px;
@@ -44,6 +48,7 @@ button.input-button:focus {
   justify-content: space-between;
   width: 100%;
   align-items: center;
+  flex-wrap: wrap;
 }
 .selected {
   background-color: #0dd15523;

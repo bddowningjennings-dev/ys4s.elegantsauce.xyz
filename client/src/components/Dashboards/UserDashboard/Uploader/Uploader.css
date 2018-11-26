@@ -1,9 +1,6 @@
 .Uploader {
   margin: 10px 0;
-  width: 80%;
-  /* width: 90%; */
-  /* background-color: rgba(9, 241, 241, 0.185); */
-  /* background-color: rgb(234, 250, 242); */
+  width: 70%;
   background-color: rgba(157, 205, 241, 0.788);
 
   align-self: center;
@@ -15,7 +12,6 @@
   text-align: center;
   border-radius: 30px;
   border-top-right-radius: 5px;
-
   transition: box-shadow .25s;
   box-shadow: 0 8px 47px 15px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
   padding: 15px 0;

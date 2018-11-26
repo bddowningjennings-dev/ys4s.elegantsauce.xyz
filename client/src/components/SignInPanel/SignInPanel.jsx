@@ -7,7 +7,7 @@ import Register from './Register/Register'
 import spinnerIMG from '../../assets/spinner.svg'
 // import imgThing from '../../assets/logo.svg'
 
-import { userFetcher } from '../../helpers/helpers'
+import { userFetcher } from '../../helpers/fetcher'
 
 const Aux = props => props.children
 

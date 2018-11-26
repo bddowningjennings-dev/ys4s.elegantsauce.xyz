@@ -12,7 +12,8 @@ class UploadController {
   }
   async create(req, res) {
     let photos = [], photos_long = [], attachments = []
-    let html = `<p>${ req.params.id }</p><p>${req.body.title}</p><p>${req.body.msg}</p>`
+
+    let html = ''
     for (let file of req.body.files) {
       const path = `${__dirname}/../../${file.path}`
       photos_long.push(path)
@@ -26,11 +27,7 @@ class UploadController {
     }
     req.body.photos = photos
     req.body.photos_long = photos_long
-    // console.log('user', req.params.id)
     req.body.user = req.params.id
-
-    console.log(html)
-
     try {
       // console.log('testing', req.body)
       const user = await User.findById(req.params.id)
@@ -44,8 +41,18 @@ class UploadController {
 
       user.uploads.push(upload._id)
       
-      console.log('made it here')
+      // console.log('made it here')
       user.save()
+
+      html = `
+        <p>Upload User: ${user.email} - ${req.params.id}</p>
+        <p>Upload Title: ${req.body.title}</p>
+        <p>Upload Messege: ${req.body.msg}</p>
+        ${html}
+      `
+  
+      console.log('html >> ', html)
+
       mailer(mailTo, { html, attachments })
       return res.json(upload)
     } catch(err) { return res.json(err) }
@@ -62,11 +69,17 @@ class UploadController {
       path: req.files[0].path
     }})
   }
-  // destroy(req, res) {
-  //   if (!isGranted(req.params.id, req.params.up_id))
-  //     return res.json({ error: 'not granted'})
-  //   Upload.findByIdAndRemove(req.params.up_id, (err, upload) => err ? res.json(err) : res.json(upload))
-  // }
+  async destroy(req, res) {
+    // if (!isGranted(req.params.id, req.params.up_id))
+    //   return res.json({ error: 'not granted' })
+    try {
+      const user = await User.findOne({ uploads: { $in: [req.params.up_id] } })
+      user.uploads = user.uploads.filter( up => `${up}` !== req.params.up_id )
+      await user.save()
+      const upload = await Upload.findByIdAndRemove(req.params.up_id)
+      return res.json(upload)
+    } catch(err) { return res.json(err) }
+  }
   update(req, res) {
     // if (!isGranted(req.params.id, req.params.up_id))
     //   return res.json({ error: 'not granted'})

@@ -6,7 +6,7 @@ import Main from './layout/Main/Main'
 import Modal from './layout/Modal/Modal'
 import Footer from './layout/Footer/Footer'
 
-import { clearLocalStorage, userFetcher } from './helpers/helpers'
+import { clearLocalStorage, userFetcher } from './helpers/fetcher'
 
 const initializeState = () => {
   return {
@@ -21,7 +21,6 @@ const initializeState = () => {
 
 class App extends Component {
   state = initializeState()
-
   async componentDidMount() {
     const id = localStorage.getItem('user')
     if (!id) return
@@ -45,11 +44,9 @@ class App extends Component {
 
     } catch(err) { console.log(err) }
   }
-
   handleLogin = user => {
     if (!user.userName) {
       const error = `error: ${user.error}`
-      // return alert('user not found')
 
       this.setState( prevState => ({ error })) 
     } else {
@@ -94,10 +91,10 @@ class App extends Component {
     }
 
     return (
-      <div className="App" >
+      <div onScroll={this.handleScroll} className="App" >
         <Modal {...modalProps} />
         <Header {...headerProps} />
-        {console.log('error', error) || error}
+        {error && (console.log('error', error) || error)}
         {(!error) && <Main {...mainProps} />}
         <Footer />
       </div>

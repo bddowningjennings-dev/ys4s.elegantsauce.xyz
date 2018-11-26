@@ -1,7 +1,12 @@
 .User {
+  width: 100%;
+  margin-top: 30px;
+}
+.User button {
+  width: 100%;
 
 }
-.User > img {
+.User button > img {
   width: 40px;
 }
 

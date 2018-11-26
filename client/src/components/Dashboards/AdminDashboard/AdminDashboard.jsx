@@ -3,7 +3,7 @@ import './AdminDashboard.css'
 
 import UserList from './UserList/UserList'
 
-import { userFetcher } from '../../../helpers/helpers'
+import { userFetcher } from '../../../helpers/fetcher'
 import userFilters from './userFilters'
 
 const { removeAdmin } = userFilters

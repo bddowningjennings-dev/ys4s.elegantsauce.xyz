@@ -3,7 +3,7 @@ import './UserList.css'
 
 import User from './User/User'
 
-const userMap = user => console.log(user) || <User key={ user._id } user={ user } />
+const userMap = user => <User key={ user._id } user={ user } />
 
 const userList = ({ users }) =>(
   <div className='UserList'>

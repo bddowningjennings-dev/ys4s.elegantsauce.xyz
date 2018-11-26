@@ -118,9 +118,9 @@ margin-bottom: 0;
   width: 200px;
 } */
 #loading-img {
-  width: 200px;
+  width: 100px;
   animation: loading-spin infinite 1s linear;
-  margin-bottom: 30px;
+  margin: 50px 0;
   /* height: 80px; */
 }
 .loadingMsg {

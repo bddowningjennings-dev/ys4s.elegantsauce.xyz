@@ -20,7 +20,7 @@ module.exports = app => {
   app.post('/api/users/:id/photo', isLoggedIn, uploader.array('upl', 2), Upload.photo)
   
   app.put('/api/users/:id/uploads/:up_id', isLoggedIn, isGranted, Upload.update)
-  // app.delete('/users/:id/uploads/:up_id', isLoggedIn, Upload.destroy)
+  app.delete('/api/users/:id/uploads/:up_id', isLoggedIn, Upload.destroy)
 }
 
 

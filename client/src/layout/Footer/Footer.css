@@ -1,6 +1,9 @@
 
 .Footer {
   width: 100%;
+  /* position: fixed; */
+  /* bottom: 0; */
+  /* z-index: -1; */
 }
 .Footer .footer-bottom {
   width: 100%;
@@ -57,4 +60,15 @@ a.social-icon:hover {
 	padding: 10px;
   transition: box-shadow .25s;
   box-shadow: 0 8px 7px 1px rgba(0, 0, 0, 0.2), 0 6px 2px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media screen and (max-width: 620px) {
+  .Footer .social-links > a {
+
+    width: 100px;
+  }
+  .Footer .social-links > a.social-icon img {
+    width: 100%;
+    min-width: 30px;
+  }
 }

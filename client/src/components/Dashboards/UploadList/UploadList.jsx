@@ -8,56 +8,47 @@ const filterUploads = uploads => {
     all_type: uploads,
     complete_type: uploads.filter(e => e.complete),
     clear_type: uploads.filter(e => e.clear),
-    active_type: uploads.filter(e => (!e.complete && !e.clear)),
+    new_type: uploads.filter(e => (!e.complete && !e.clear)),
   }
 }
 
-const uploadList = ({ uploads, applyFilter, filter, updateUpload }) => {
+const uploadList = ({ uploads, applyFilter, filter, updateUpload, removeUpload }) => {
   const filteredUploads = filterUploads(uploads)
-  const uploadMap = upload => <Upload updateUpload={ updateUpload } key={ upload._id } upload={ upload } />
+  const getUploadProps = upload => ({ upload, updateUpload, removeUpload, key: upload._id })
+  const uploadMap = upload => <Upload {...getUploadProps(upload)} />
+
+  let newActive = filter.includes('new') ? 'active' : ''
+  let clearActive = filter.includes('clear') ? 'active' : ''
+  let completeActive = filter.includes('complete') ? 'active' : ''
+  let allActive = filter.includes('all') ? 'active' : ''
 
   return <div className='UploadList'>
-    
     <div className='buttons'>
-    <button className="sorter new" onClick={applyFilter('active_type')}>
-              <div className="sort_count"> { filteredUploads['active_type'].length } </div>
-              <div className="sort_title"> New </div>
+      <button className={`sorter new ${newActive}`} onClick={applyFilter('new_type')}>
+        <div className="sort_count"> { filteredUploads['new_type'].length } </div>
+        <div className="sort_title"> New </div>
       </button>
-      
-      {/* <button onClick={applyFilter('active_type')}>
-        New {filteredUploads['active_type'].length}
-        
-      </button> */}
-      {/* <button onClick={applyFilter('clear_type')}>
-        Posted {filteredUploads['clear_type'].length}
-      </button> */}
-
-    <button className="sorter clear" onClick={applyFilter('clear_type')}>
-              <div className="sort_count"> { filteredUploads['clear_type'].length } </div>
-              <div className="sort_title"> Posted </div>
+      <button className={`sorter clear ${clearActive}`} onClick={applyFilter('clear_type')}>
+        <div className="sort_count"> { filteredUploads['clear_type'].length } </div>
+        <div className="sort_title"> Posted </div>
       </button>
-
-      {/* <button onClick={applyFilter('complete_type')}>
-        Sold {filteredUploads['complete_type'].length}
-      </button> */}
-
-    <button className="sorter complete" onClick={applyFilter('complete_type')}>
-              <div className="sort_count"> { filteredUploads['complete_type'].length } </div>
-              <div className="sort_title"> Sold </div>
-</button>
-
-      
-      {/* <button onClick={applyFilter('all_type')}>
-        All {filteredUploads['all_type'].length}
-      </button> */}
-
-    <button className="sorter all" onClick={applyFilter('all_type')}>
-              <div className="sort_count"> { filteredUploads['all_type'].length } </div>
-              <div className="sort_title"> All </div>
-</button>
+      <button className={`sorter complete ${completeActive}`} onClick={applyFilter('complete_type')}>
+        <div className="sort_count"> { filteredUploads['complete_type'].length } </div>
+        <div className="sort_title"> Sold </div>
+      </button>
+      <button className={`sorter all ${allActive}`} onClick={applyFilter('all_type')}>
+        <div className="sort_count"> { filteredUploads['all_type'].length } </div>
+        <div className="sort_title"> All </div>
+      </button>
     </div>
 
-    { filteredUploads[filter].map(uploadMap) }
+    {filteredUploads[filter].map(uploadMap)}
+    {
+      (filteredUploads[filter].map(uploadMap).length < 1) &&
+      <div className="empty-filter">
+        ... empty list ...
+      </div>
+    }
   </div>
 }
 // )

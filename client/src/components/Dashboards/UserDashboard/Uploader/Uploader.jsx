@@ -4,7 +4,7 @@ import './Uploader.css'
 import PhotoPicker from './PhotoPicker/PhotoPicker'
 
 import SelectInput from '../../../customInputs/SelectInput'
-import { uploadFetcher } from '../../../../helpers/helpers'
+import { uploadFetcher } from '../../../../helpers/fetcher'
 
 const pickerMap = getFile => (_, i) => (<PhotoPicker key={i} picker={i} getFile={getFile} />)
 

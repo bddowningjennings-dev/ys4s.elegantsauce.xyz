@@ -42,16 +42,6 @@
     align-self: flex-start;
     margin: 10px;
   }
-  .Header .header-top .title {
-    /* margin-top: 60px; */
-    display: none;
-  }
-  .Header .header-top {
-    /* padding-left: 20px; */
-  }
-  button#logout {
-    padding: 0;
-  }
   .Main {
     /* margin-top: 120px; */
   }

@@ -8,7 +8,7 @@ const initializeState = ({ user, uploads = [] }) => ({
   user,
   uploads,
   showUploader: false,
-  filter: 'active_type',
+  filter: 'new_type',
 })
 
 class UserDashboard extends Component {
@@ -32,6 +32,9 @@ class UserDashboard extends Component {
   addUpload = upload => {
     this.setState( ({ uploads: prevUploads }) => ({ uploads: [ upload, ...prevUploads ] }))
   }
+  removeUpload = upload => {
+    this.setState( ({ uploads }) => ({ uploads: [ ...uploads.filter( up => up._id !== upload._id ) ] }))
+  }
   updateUpload = upload => {
     const { _id: id } = upload
     const { uploads } = this.state
@@ -40,7 +43,7 @@ class UserDashboard extends Component {
   }
 
   render() {
-    const { user, uploads, showUploader, filter } = this.state
+    const { uploads, showUploader, filter } = this.state
     
     const uploaderProps = {
       addUpload: this.addUpload,
@@ -51,6 +54,7 @@ class UserDashboard extends Component {
       uploads,
       applyFilter: this.applyFilter,
       updateUpload: this.updateUpload,
+      removeUpload: this.removeUpload,
     }
 
     let toggleMsg = `Close uploader...`
@@ -59,7 +63,6 @@ class UserDashboard extends Component {
     return (
       <div className='UserDashboard'>
         
-        UserDashboard: {user.toUpperCase()}
         <button id="uploader-toggle" onClick={this.toggleUploader}>{toggleMsg}</button>
 
         { showUploader && <Uploader {...uploaderProps} /> }

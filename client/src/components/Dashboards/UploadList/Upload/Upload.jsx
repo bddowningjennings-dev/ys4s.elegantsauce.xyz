@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import './Upload.css'
 
+import { uploadFetcher } from '../../../../helpers/fetcher'
+import { aux as Aux, dateFormat, } from '../../../../helpers/helpers'
+
 import defaultImg from '../../../../assets/logo.svg'
-import { aux as Aux, dateFormat, uploadFetcher } from '../../../../helpers/helpers'
 
 const photoMap = photo => (
   <img
@@ -28,7 +30,6 @@ class Upload extends Component {
     e && e.preventDefault()
     this.setState(({ hidden }) => ({ hidden: !hidden }))
   }
-
   handleUpdate = type => async e => {
     e && e.preventDefault()
 
@@ -36,7 +37,6 @@ class Upload extends Component {
     const { complete, clear } = this.state
 
     let updates
-
     if (type === 'complete') {
       updates = {
         up_id: up_id,
@@ -52,30 +52,18 @@ class Upload extends Component {
       const upload = await uploadFetcher.update(updates)
       const { complete, clear } = upload
 
-      this.setState({ complete, clear },
-        () => updateUpload(upload)
-      )
+      this.setState({ complete, clear }, () => updateUpload(upload))
     } catch (err) { console.log(err) }
   }
-  // handleRemove = (event) => {
-  //   if (this.props.removeUpload) {
-  //     let up_id = this.state._id
-  //     let token = localStorage.getItem('token')
-  //     let user = localStorage.getItem('user')
-  //     fetch(`/users/${user}/uploads/${up_id}`, {
-  //       headers: new Headers({
-  //         'Content-Type': 'application/json',
-  //         'Authorization': `Bearer ${token}`
-  //       }),
-  //       method: 'delete',
-  //     })
-  //     .then(data => data.json())
-  //     .then(upload => {
-  //       this.props.removeUpload(upload._id)
-  //     })
-  //     .catch(err=>console.log(err))
-  //   }
-  // }
+  handleRemove = async e => {
+    e && e.preventDefault()
+    const { upload: { _id: up_id }, removeUpload } = this.props
+
+    try {
+      const upload = await uploadFetcher.destroy(up_id)
+      removeUpload(upload)
+    } catch(err) { console.log(err) }
+  }
 
   render() {
     const { upload: { title, msg, photos, updatedAt, createdAt } } = this.props
@@ -88,17 +76,16 @@ class Upload extends Component {
       <div className="upload_buttons">
         <button
           onClick={this.handleUpdate('clear')}>
-          Mark <br /> For Sale
+          { this.state.clear === false ? `Mark Posted` : `Clear Posted` }
         </button>
         <button
           onClick={this.handleUpdate('complete')}>
-          Mark <br /> Sold
+          { this.state.complete === false ? `Mark Sold` : `Clear Sold` }
         </button>
-        {/* <button
-          id={`delete-${_id}`}
+        <button
           onClick={this.handleRemove}>
-          Delete <br />
-        </button> */}
+          Request Delete
+        </button>
       </div>
     )
 
@@ -106,32 +93,29 @@ class Upload extends Component {
       <div className='Upload'>
         <div className='upload-header'>
           <div className='upload-title'>
-    <button onClick={ this.handleShow } >{ title }</button>
-          
+            <button onClick={ this.handleShow } >{ title }</button>
           </div>
-
+          <span className="upload-photo-count">{`${photos.length} photo(s)`}</span>
           <div className="upload-buttons"> {buttons} </div>
         </div>
-
-        <div className="upload-details">
-            
-            <div className="upload_date">{upDate}</div>
-            <div className="upload_date">{initDate}</div>
-            {`${photos.length} photo(s)`}
-        </div>
         
-        {(!hidden) &&
+        {
+          (!hidden) &&
           <Aux>
-          
-        <section className="info">
-          <p>{ title }</p>
-          <p>{msg}</p>
-        </section>
-        <section className="imgs">
-          { photos.map(photoMap) }
-        </section>
-  </Aux>
-  }
+            <section className="info">
+              <p>Title: { title }</p>
+              <p>Messege: {msg}</p>
+            </section>
+              
+            <div className="upload-details">
+              <div className="upload_date">Updated: {upDate}</div>
+              <div className="upload_date">Created: {initDate}</div>
+            </div>
+            <section className="imgs">
+              { photos.map(photoMap) }
+            </section>
+          </Aux>
+        }
       </div>
     )
   }
