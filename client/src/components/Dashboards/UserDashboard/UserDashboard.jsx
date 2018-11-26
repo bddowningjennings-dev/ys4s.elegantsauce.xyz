@@ -16,11 +16,12 @@ class UserDashboard extends Component {
 
   componentDidUpdate(lastProps, lastState) {
     const { uploads } = this.props
-    if (uploads !== lastProps.uploads) this.setState( prevState => ({
-      uploads: [ ...prevState.uploads, ...uploads, ]
-    }))
-  }
 
+    if (uploads !== lastProps.uploads)
+      this.setState(({ uploads: prevUploads }) => ({
+        uploads: [ ...prevUploads, ...uploads, ]
+      }))
+  }
   applyFilter = filter => e => {
     e && e.preventDefault()
     this.setState({ filter })
@@ -39,7 +40,7 @@ class UserDashboard extends Component {
     const { _id: id } = upload
     const { uploads } = this.state
     const otherUploads = uploads.filter(upload => upload._id !== id)
-    this.setState({ uploads: [ upload, ...otherUploads ]}, ()=>console.log('new', this.state.uploads))
+    this.setState({ uploads: [ upload, ...otherUploads ] })
   }
 
   render() {
@@ -57,15 +58,17 @@ class UserDashboard extends Component {
       removeUpload: this.removeUpload,
     }
 
-    let toggleMsg = `Close uploader...`
-    if (!showUploader) toggleMsg = `Open uploader...`
+    let uploader
+    let toggleMsg = `Open uploader...`
+    if (showUploader) {
+      uploader = <Uploader {...uploaderProps} />
+      toggleMsg = `Close uploader...`
+    }
 
     return (
       <div className='UserDashboard'>
-        
         <button id="uploader-toggle" onClick={this.toggleUploader}>{toggleMsg}</button>
-
-        { showUploader && <Uploader {...uploaderProps} /> }
+        { uploader }
         <UploadList { ...uploadListProps } />
       </div>
     )

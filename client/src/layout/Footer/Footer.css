@@ -1,9 +1,6 @@
 
 .Footer {
   width: 100%;
-  /* position: fixed; */
-  /* bottom: 0; */
-  /* z-index: -1; */
 }
 .Footer .footer-bottom {
   width: 100%;
@@ -11,28 +8,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* padding: 20px 0; */
   transition: box-shadow .25s;
   box-shadow: 0 8px 17px 15px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background: linear-gradient(to right,#1f6d66c0,#e0a912dc);
   z-index: 2;
-  /* background: linear-gradient(to right,#1f6d46c0,#e0a912dc); */
   height: 250px;
 }
-
 .Footer .footer-top {
   width: 100%;
-  
   transition: box-shadow .25s;
   box-shadow: 0 8px 17px 15px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background: linear-gradient(to right,#2796d0,#12e0cf);
   z-index: 3;
 }
-
 .Footer .social-links {
   width: 70%;
   height: 100%;
-  /* height: 300px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,7 +43,6 @@ a.social-icon.portfolio {
 a.social-icon.github {
   width: 55px;
 }
-
 a.social-icon:hover {
 	background-color: #cbcbb666;
   border-radius: 400px;
@@ -64,7 +54,6 @@ a.social-icon:hover {
 
 @media screen and (max-width: 620px) {
   .Footer .social-links > a {
-
     width: 100px;
   }
   .Footer .social-links > a.social-icon img {

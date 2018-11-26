@@ -8,19 +8,18 @@ import Footer from './layout/Footer/Footer'
 
 import { clearLocalStorage, userFetcher } from './helpers/fetcher'
 
-const initializeState = () => {
-  return {
-    user: '',
-    error: '',
-    uploads: [],
-    admin: false,
-    showModal: false,
-    isLoggedIn: false,
-  }
-}
+const initializeState = () => ({
+  user: '',
+  error: '',
+  uploads: [],
+  admin: false,
+  showModal: false,
+  isLoggedIn: false,
+})
 
 class App extends Component {
   state = initializeState()
+  
   async componentDidMount() {
     const id = localStorage.getItem('user')
     if (!id) return
@@ -31,32 +30,28 @@ class App extends Component {
       if (user.error) {
         const error = `error: ${user.error}`
         this.setState({ error })
-
       } else {
-        this.setState( prevState => ({
-          ...prevState,
+        this.setState({
           isLoggedIn: true,
           admin: user.admin,
           user: user.userName,
           uploads: user.uploads || [],
-        })) 
+        })
       }
-
     } catch(err) { console.log(err) }
   }
+
   handleLogin = user => {
     if (!user.userName) {
       const error = `error: ${user.error}`
-
-      this.setState( prevState => ({ error })) 
+      this.setState({ error })
     } else {
-      this.setState( prevState => ({
-        ...prevState,
+      this.setState({
         isLoggedIn: true,
         admin: user.admin || false,
         user: user.userName,
         uploads: user.uploads,
-      }))
+      })
     }
   }
   handleLogout = e => {
@@ -65,10 +60,7 @@ class App extends Component {
   }
   toggleModal = e => {
     e && e.preventDefault()
-    this.setState( prevState => ({
-      ...prevState,
-      showModal: !prevState.showModal,
-    }))
+    this.setState(({showModal}) => ({ showModal: !showModal }))
   }
 
   render() {
@@ -81,6 +73,7 @@ class App extends Component {
     const mainProps = {
       user,
       admin,
+      error,
       uploads,
       isLoggedIn,
       handleLogin: this.handleLogin,
@@ -91,11 +84,10 @@ class App extends Component {
     }
 
     return (
-      <div onScroll={this.handleScroll} className="App" >
+      <div className="App" >
         <Modal {...modalProps} />
         <Header {...headerProps} />
-        {error && (console.log('error', error) || error)}
-        {(!error) && <Main {...mainProps} />}
+        <Main {...mainProps} />
         <Footer />
       </div>
     )

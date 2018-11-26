@@ -4,52 +4,37 @@ import './SignInPanel.css'
 import Login from './Login/Login'
 import Register from './Register/Register'
 
-import spinnerIMG from '../../assets/spinner.svg'
-// import imgThing from '../../assets/logo.svg'
-
 import { userFetcher } from '../../helpers/fetcher'
+import { aux as Aux, validateEmail } from '../../helpers/helpers'
 
-const Aux = props => props.children
+import spinnerIMG from '../../assets/spinner.svg'
 
-const validateEmail = email => {
-  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  return re.test(String(email).toLowerCase());
-}
-
-const initializeState = () => {
-  return {
-    error: '',
-    email: '',
-    userName: '',
-    password: '',
-    loading: false,
-    registering: false,
-  }
-}
+const initializeState = () => ({
+  error: '',
+  email: '',
+  userName: '',
+  password: '',
+  loading: false,
+  registering: false,
+})
 
 class SignInPanel extends Component {
   state = initializeState()
 
+  handleKeyDown = e => (e.keyCode === 13) && this.handleLogin()
   handleToggle = e => {
     e && e.preventDefault()
-    this.setState( prevState => ({
-      ...prevState,
+    this.setState(({ registering }) => ({
       error: '',
-      registering: !prevState.registering,
+      registering: !registering,
     }))
   }
-
   handleChange = e => {
     e && e.preventDefault()
     this.setState({
       error: '',
       [e.target.name]: e.target.value,
     })
-  }
-  handleKeyDown = e => {
-    if (e.keyCode === 13) {
-      this.handleLogin()
-    }
   }
 
   handleLogin = async e => {
@@ -65,16 +50,12 @@ class SignInPanel extends Component {
     this.setState({ loading: true }, async () => {
       try {
         let user
-        if (registering) {
-          user = await userFetcher.register(this.state)
-        } else {
-          user = await userFetcher.login(this.state)
-        }
-        if (user.token) {
-          handleLogin(user)
-        } else {
-          this.setState(prevState => ({ ...prevState, loading: false, error: user.error }))
-        }
+        if (registering) user = await userFetcher.register(this.state)
+        else user = await userFetcher.login(this.state)
+
+        if (user.token) handleLogin(user)
+        else this.setState({ loading: false, error: user.error })
+
       } catch (err) { console.log(err) }
     })
   }
@@ -90,27 +71,26 @@ class SignInPanel extends Component {
     }
 
     let toggleButtonText = `Create new user account...`
-    if (registering) toggleButtonText = `Login to existing account...`
+    let loginHandler = <Login {...signInProps} />
+    
+    if (registering) {
+      toggleButtonText = `Login to existing account...`
+      loginHandler = <Register {...signInProps} />
+    }
 
-    let loginHandler = <Login { ...signInProps } />
-    if (registering) loginHandler = <Register { ...signInProps } />
+    let loadingContent = <Aux>
+      <img id="loading-img" alt="" src={spinnerIMG} />
+      <p className="loadingMsg">Loading profile...</p>
+    </Aux>
 
-    let loadingContent = (
-      <Aux>
-        <img id="loading-img" alt="" src={spinnerIMG} />
-        <p className="loadingMsg">Loading profile...</p>
-      </Aux>
-    )
-    if (!loading) loadingContent = (
-      <Aux>
-        {loginHandler}
-        <button
-          id="register-btn"
-          onClick={this.handleToggle}>
-          {`${toggleButtonText}`}
-        </button>
-      </Aux>
-    )
+    if (!loading) loadingContent = <Aux>
+      {loginHandler}
+      <button
+        id="register-btn"
+        onClick={this.handleToggle}>
+        {`${toggleButtonText}`}
+      </button>
+    </Aux>
 
     return (
       <div className="SignInPanel">

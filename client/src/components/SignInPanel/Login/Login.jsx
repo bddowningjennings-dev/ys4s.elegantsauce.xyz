@@ -4,13 +4,16 @@ import './Login.css'
 const login = props => {
   const { email, password, error } = props
   const { handleChange, handleLogin, handleKeyDown } = props
-  
+
+  const errorContent = !error ? '' : (
+    <div className="Error">
+      { error }
+    </div>
+  )
+
   return (
     <div className="Login">
-      
-    { error && <div className="Error">
-      { error }
-    </div>}
+      {errorContent}
       <input
         onChange={ handleChange }
         onKeyDown={handleKeyDown}
@@ -27,9 +30,9 @@ const login = props => {
         value={ password }
         placeholder='Password'
       />
+      
       <div className='buttons'>
         <button onClick={ handleLogin }> Login </button>
-        {/* <button onClick={ handleForgotPassword }> Forgot password? </button> */}
       </div>
 
     </div>

@@ -20,7 +20,6 @@
   background: linear-gradient(to right,#2796d0,#12e0cf);
   margin-bottom: 20px;
   padding: 10px 0;
-
 }
 .Header .header-top .spacer {
   min-width: 180px;
@@ -43,7 +42,6 @@
   min-width: 180px;
 }
 .Header .header-top .user_icon {
-  /* margin: 40px 0; */
   margin-right: 8px;
   width: 35px;
   height: 35px;
@@ -69,11 +67,7 @@
 
 @media screen and (max-width: 620px) {
   .Header .header-top .title {
-    /* margin-top: 60px; */
     display: none;
-  }
-  .Header .header-top {
-    /* padding-left: 20px; */
   }
   button#logout {
     padding: 0;

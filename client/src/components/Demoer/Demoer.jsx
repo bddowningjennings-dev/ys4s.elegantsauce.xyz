@@ -7,7 +7,6 @@ import { sleep } from '../../helpers/helpers'
 
 const demoMapper = (demo, i) => {
   let className = 'hidden'
-  // if ( show === i ) className = ''
   const demoProps = {
     ...demo,
     key: i,
@@ -17,16 +16,15 @@ const demoMapper = (demo, i) => {
   return <Demo {...demoProps} />
 }
 
-// const demoMapper = show => (demo, i) => {
-//   let className = 'hidden'
-//   if ( show === i ) className = ''
-//   const demoProps = {
-//     ...demo,
-//     key: i,
-//     className,
-//   }
-//   return <Demo {...demoProps} />
-// }
+const setClasses = state => {
+  const all = document.getElementsByClassName('Demo')
+  Array.prototype.forEach.call(all, el => el.classList.add('hidden'))
+
+  let show = Math.abs(state.count % all.length)
+  const showing = document.getElementById(`demo_${show}`)
+
+  showing.classList.remove('hidden')
+}
 
 const initializeState = () => {
   return {
@@ -49,30 +47,21 @@ class Demoer extends Component {
 
   forceCount = (dir = 1) => async e => {
     e && e.preventDefault()
-    this.setState(prevState => {
-      return {
-        cancel: true,
-        count: Number(prevState.count) + Number(dir),
-      }
-    }, () => {
-      // this.updateCount()
-      const all = document.getElementsByClassName('Demo')
-      let show = Math.abs(this.state.count % all.length)
-      Array.prototype.forEach.call(all, el => el.classList.add('hidden'))
-      const showing = document.getElementById(`demo_${show}`)
-      showing.classList.remove('hidden')
-    })
+    this.setState(({ count }) => ({
+      cancel: true,
+      count: Number(count) + Number(dir),
+    }), () => setClasses(this.state))
   }
   updateCount = async ms => {
     if (this.state.cancel) {
-      this.setState(prevState => ({ cancel: false }), async () => {
+      this.setState({ cancel: false }, async () => {
         await sleep(8000)
         if (this.unmounted) return
         this.updateCount(ms)
       })
       return
     }
-    this.setState(prevState => ({ count: prevState.count += 1 }), async () => {
+    this.setState(({ count }) => ({ count: count += 1 }), async () => {
 
       const all = document.getElementsByClassName('Demo')
       let show = Math.abs(this.state.count % all.length)
@@ -80,17 +69,15 @@ class Demoer extends Component {
       Array.prototype.forEach.call(all, el => el.classList.add('hidden'))
       const showing = document.getElementById(`demo_${show}`)
       showing.classList.remove('hidden')
+
       await sleep(ms)
       if (this.unmounted) return
       this.updateCount(ms)
     })
   }
   render() {
-    // const { count } = this.state
     const { demos } = this.props
-    // let show = count % demos.length
     let demoArr = demos.map(demoMapper)
-    // let demoArr = demos.map(demoMapper(show))
 
     return (
       <div className="Demoer">
@@ -102,8 +89,6 @@ class Demoer extends Component {
       </div>
     )
   }
-
-
 }
 
 export default Demoer

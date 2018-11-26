@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './PhotoPicker.css'
 
 import previewImg from '../../../../../assets/preview.png'
-// import waitingImg from '../../../../assets/waiting.png'
 
 import { uploadFetcher } from '../../../../../helpers/fetcher'
 
@@ -39,10 +38,8 @@ const initializeState = () => {
 }
 
 class PhotoPicker extends Component {
-  constructor(props) {
-    super(props)
-    this.state = initializeState()
-  }
+  state = initializeState()
+
   sendBlob = async blob => {
     const { getFile } = { ...this.props }
   
@@ -65,8 +62,8 @@ class PhotoPicker extends Component {
     }
     reader.readAsDataURL(e.target.files[0])
   }
-  render() {
 
+  render() {
     const { pickerStyle } = this.state
     
     return (

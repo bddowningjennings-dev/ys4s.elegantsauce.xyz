@@ -5,11 +5,15 @@ const register = props => {
   const { userName, email, password, error } = props
   const { handleChange, handleLogin, handleKeyDown } = props
   
+  const errorContent = !error ? '' : (
+    <div className="Error">
+      { error }
+    </div>
+  )
+
   return (
     <div className="Register">      
-    { error && <div className="Error">
-      { error }
-    </div>}
+      { errorContent }
       <input
         onChange={handleChange}
         onKeyDown={handleKeyDown}
@@ -34,6 +38,7 @@ const register = props => {
         value={ password }
         placeholder='Password'
       />
+      
       <div className='buttons'>
         <button onClick={ handleLogin }> Register </button>
       </div>

@@ -2,29 +2,16 @@
   cursor: pointer;
   
 }
-
 .preview {
   height: 300px;
   width: 280px;
   background-color: transparent;
-  /* margin: 0 5px; */
   background-size: contain; 
   background-position: center center; 
   background-repeat: no-repeat;
   margin-bottom: 10px;
   margin-bottom: 10px 0;
 }
-
 .disabled {
   display: none;
 }
-
-.PhotoPicker {
-  /* animation: App-logo-spin infinite 8s linear; */
-  /* height: 80px; */
-}
-
-/* @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-} */

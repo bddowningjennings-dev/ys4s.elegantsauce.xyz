@@ -4,7 +4,6 @@
   align-items: center;
   width: 90%
 }
-
 #uploader-toggle {
   border: none;
   color: white;
@@ -13,7 +12,6 @@
   align-self: flex-end;
   margin-top: 25px;
   background-color: rgba(218, 91, 91, 0.938);
-
   transition: box-shadow .25s;
   box-shadow: 0 1px 88px 1px rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }

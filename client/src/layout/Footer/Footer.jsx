@@ -6,16 +6,12 @@ import linkedinIMG from '../../assets/002-linkedin.svg'
 import githubIMG from '../../assets/003-github.svg'
 import twitterIMG from '../../assets/001-twitter.svg'
 
- const footer = props => {
+const footer = props => {
+   
   return (
     <footer className="Footer">
-      {/* <div className="footer-top" /> */}
       <div className="footer-bottom">
         <span className="" id="anchor_contact" />
-        <div className="social_label">
-            {/* <!-- <img src="assets/red_arrow.svg" alt="" srcSet="">   -->
-            <!-- <h3>Here are some of my profiles...</h3> --> */}
-        </div>
         <div className="social-links">
           <div className="spacer" />
           <a

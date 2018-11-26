@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import './Uploader.css'
 
 import PhotoPicker from './PhotoPicker/PhotoPicker'
-
 import SelectInput from '../../../customInputs/SelectInput'
+
 import { uploadFetcher } from '../../../../helpers/fetcher'
 
 const pickerMap = getFile => (_, i) => (<PhotoPicker key={i} picker={i} getFile={getFile} />)
@@ -33,13 +33,11 @@ class Uploader extends Component {
     e && e.preventDefault()
     this.setState({ [ e.target.name ]: e.target.value })
   }
-
   getFile = file => {
     const { files } = this.state
     let others = files.filter( each => each.picker !== file.picker )
-    this.setState( prevState => ({ ...prevState, files: [ file, ...others ] }))
+    this.setState({ files: [ file, ...others ] })
   }
-
   handleSubmit = async e => {
     e && e.preventDefault()
     const { addUpload, toggleUploader } = this.props
@@ -51,7 +49,6 @@ class Uploader extends Component {
       toggleUploader()
     } catch(err) { console.log(err) }
   }
-
   pullSubState = (key, sectionState) => {
     this.setState({ [key]: sectionState })
   }
